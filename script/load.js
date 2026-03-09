@@ -158,3 +158,23 @@ const openTab = (status, btnElement) => {
         btn.classList.remove('bg-[#4100ff]', 'text-white'); 
         btn.classList.add('bg-gray-100', 'text-gray-500');  
     });
+ 
+    if (btnElement) {
+        btnElement.classList.remove('bg-gray-100', 'text-gray-500');
+        btnElement.classList.add('bg-[#4100ff]', 'text-white');
+    }
+
+    
+    if (status === 'all') {
+        displayIssues(allIssues);
+    } else {
+        const filteredData = allIssues.filter(issue => issue.status.toLowerCase() === status.toLowerCase());
+        displayIssues(filteredData);
+    }
+};
+
+
+
+
+
+loadAllIssues();
