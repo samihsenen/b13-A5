@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Geist', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+</head>
+<body >
+<nav>
+    <div class="navbar bg-base-100 shadow-sm px-12">
+    <div class="flex-1 flex items-center gap-2">
+ 
+  <img src="assets/github-logo.png" alt="GitHub Logo" class="h-10 w-auto" />
+  <h1 class="text-2xl">GitHub Issues Tracker</h1>
+</div>
+    <div class="flex gap-2">
+        <div class="join">
+            <input id="search-input" type="text" placeholder="Search issues..." class="input input-bordered join-item w-24 md:w-64 focus:outline-none" />
+            <button id="search-btn" class="btn btn-primary join-item bg-[#5811f0] hover:bg-[#430ec2] border-none text-white px-6">
+            Search
+            </button>
+        </div>
+        
+    </div>
+</div>
+</nav>
+    <section class="max-w-6xl mx-auto mt-8 px-6">
+<div class="bg-white shadow-sm border border-gray-100 rounded-lg p-6">
+  <div  class="flex gap-3" id="tab-group">
+    
+    <button onclick="openTab('all', this)" class="btn bg-[#4100ff] text-white border-none">All</button>
+    <button onclick="openTab('open', this)" class="btn bg-gray-100 text-gray-600 border-none">Open</button>
+    <button onclick="openTab('closed', this)" class="btn bg-gray-100 text-gray-600 border-none">Closed</button>
+  </div>
+  
+  
+</div>
+<div class="bg-white border border-gray-100 rounded-t-xl p-6 mt-6 flex justify-between items-center">
+   
+    <div class="flex items-center gap-4">
+        <div class="bg-purple-100 p-3 rounded-full">
+             <img src="assets/Aperture.png" alt="icon" class="w-6 h-6"> 
+        </div>
+        <div>
+            <h2 class="text-xl font-bold text-gray-800"><span id="issue-count">0</span> Issues</h2>
+            <p class="text-sm text-gray-400 font-medium">Track and manage your project issues</p>
+        </div>
+    </div>
+
+    
+    <div class="flex gap-4 text-sm font-semibold text-gray-600">
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 bg-green-500 rounded-full"></span> Open
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 bg-purple-500 rounded-full"></span> Closed
+        </div>
+    </div>
+</div>
+
+<div id="issues-card" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+   
+</div>
+
+
+<div id="issue-modal" class="fixed inset-0 bg-gray-900/40 hidden flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+   
+    <div class="bg-white rounded-[32px] max-w-md w-full p-8 relative shadow-2xl border border-gray-100">
+        <div id="modal-content">
+          
+        </div>
+        
+        <div class="mt-6 flex justify-end">
+            <button onclick="closeModal()" class="btn bg-[#5811f0] hover:bg-[#430ec2] text-white border-none px-8 py-2 rounded-xl text-sm font-semibold transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+    </section>
+    <script src="script/load.js"></script>
+</body>
+</html>
